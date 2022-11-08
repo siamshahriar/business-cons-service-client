@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 const EachReviews = ({ service }) => {
   const { _id, name, img, price, description } = service;
+  //   const descr = description.substring(5);
+  //   console.log(description);
+
   return (
     <div className="card w-auto bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
@@ -15,7 +18,7 @@ const EachReviews = ({ service }) => {
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{name}</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <p>{description.slice(0, 100)}...</p>
         <div className="card-actions">
           <Link to={`/services/${_id}`}>
             <button className="btn btn-primary">Buy Now</button>
