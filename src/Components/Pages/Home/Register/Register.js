@@ -29,7 +29,6 @@ const Register = () => {
     createUser(email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
         // console.log(user);
         handleUpdateUserProfile(name, photoURL);
         toast.success("Registration Successful");
@@ -38,7 +37,8 @@ const Register = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
+        toast.error(errorCode.substring(5));
+
         // console.log(errorMessage);
         // ..
       });

@@ -38,7 +38,6 @@ const Login = () => {
     signIn(email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
         // console.log("login successful");
         form.reset();
         toast.success("Login Successful");
