@@ -4,7 +4,7 @@ import "./EachCustomerReviews.css";
 const EachCustomerReviews = ({ review }) => {
   const { name, text, img } = review;
   return (
-    <div className="custom-card">
+    <div className="custom-card mb-12 md:mb-16 ">
       <div className="custom-card-img">
         <img src={img} className="custom-card-img" alt="" />
       </div>

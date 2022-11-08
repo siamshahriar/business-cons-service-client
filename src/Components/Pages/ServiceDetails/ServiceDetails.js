@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Popup from "reactjs-popup";
 import EachCustomerReviews from "../EachCustomerReviews/EachCustomerReviews";
 import FullEachReviews from "../Home/EachReviews/FullEachReviews";
+import "reactjs-popup/dist/index.css";
+import AddReview from "../AddReview/AddReview";
+import "../AddReview/addReview.css";
+import { FaWindowClose } from "react-icons/fa";
 
 const ServiceDetails = () => {
   const eachService = useLoaderData();
@@ -18,6 +23,10 @@ const ServiceDetails = () => {
         setLoading(false);
       });
   }, []);
+
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
+
   return (
     <div>
       <div>
@@ -30,7 +39,7 @@ const ServiceDetails = () => {
         <h2 className="text-2xl font-semibold text-center py-8">
           Review Section {reviews.length}
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 my-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 my-16">
           {!loading ? (
             reviews.map((review) => (
               <EachCustomerReviews
@@ -41,6 +50,27 @@ const ServiceDetails = () => {
           ) : (
             <p>loading</p>
           )}
+        </div>
+        <div className="text-center -mt-20 mb-10">
+          <Popup
+            trigger={<button className="btn btn-outline">Add Review</button>}
+            modal
+          >
+            {(close) => (
+              <div>
+                <button
+                  className="close text-2xl text-blue-600 text-end absolute right-2"
+                  onClick={close}
+                >
+                  <FaWindowClose></FaWindowClose>
+                </button>
+                <AddReview
+                  cataName={reviews[0]?.category}
+                  close={close}
+                ></AddReview>
+              </div>
+            )}
+          </Popup>
         </div>
       </div>
     </div>
