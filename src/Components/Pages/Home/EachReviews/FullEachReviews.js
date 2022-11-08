@@ -11,6 +11,7 @@ const FullEachReviews = ({ eachService }) => {
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p className="f-r-desc">{description}</p>
+        <p className="text-xl font-semibold">Price: ${price}</p>
       </div>
     </div>
   );
