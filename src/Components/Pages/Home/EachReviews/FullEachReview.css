@@ -1,0 +1,17 @@
+.f-r-img {
+  width: 400px;
+}
+.f-r-desc {
+  width: 800px;
+}
+
+@media only screen and (min-device-width: 200px) and (max-device-width: 1024px) {
+  .f-r-desc {
+    width: auto;
+  }
+  .f-r-img {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+  }
+}

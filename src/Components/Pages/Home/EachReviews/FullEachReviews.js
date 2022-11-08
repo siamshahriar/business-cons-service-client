@@ -1,26 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "./FullEachReview.css";
 
-const FullEachReviews = ({ service }) => {
-  const { _id, name, img, price, description } = service;
+const FullEachReviews = ({ eachService }) => {
+  const { _id, name, img, price, description } = eachService;
   return (
-    <div className="card w-auto bg-base-100 shadow-xl">
-      <figure className="px-10 pt-10">
-        <img
-          src={img}
-          alt="Shoes"
-          style={{ height: "300px", objectFit: "cover" }}
-          className="rounded-xl"
-        />
+    <div className="card card-side bg-base-100 shadow-xl flex flex-col lg:flex-row">
+      <figure>
+        <img src={img} className="f-r-img " alt="Movie" />
       </figure>
-      <div className="card-body items-center text-center">
+      <div className="card-body">
         <h2 className="card-title">{name}</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions">
-          <Link to={`/services/${_id}`}>
-            <button className="btn btn-primary">Buy Now</button>
-          </Link>
-        </div>
+        <p className="f-r-desc">{description}</p>
       </div>
     </div>
   );
