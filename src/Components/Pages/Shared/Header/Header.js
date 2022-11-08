@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import logo from "../../../../assets/logo.png";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Header = () => {
-  const user = { name: "Siam" };
-  const handleLogOut = () => {};
+  const { user, loading, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+        console.log("sign out successful");
+        toast.success("sign out Successful");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
 
   const menuItems = (
     <>
@@ -77,13 +91,9 @@ const Header = () => {
             </p>
           </>
         )}
-        <Link className="ml-5 mr-3" to="/profile">
+        <Link className="ml-5 mr-3">
           {user?.photoURL ? (
-            <image
-              style={{ height: "30px" }}
-              roundedCircle
-              src={user?.photoURL}
-            ></image>
+            <img src={user?.photoURL} alt="" className="h-8 rounded-full"></img>
           ) : (
             <FaUser></FaUser>
           )}

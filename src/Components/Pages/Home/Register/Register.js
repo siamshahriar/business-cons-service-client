@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+
+  //update profile for photo and name
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -9,7 +24,24 @@ const Register = () => {
     const password = form.password.value;
     const photoURL = form.photoURL.value;
     const name = form.name.value;
-    console.log(email, password, name, photoURL);
+    // console.log(email, password, name, photoURL);
+
+    createUser(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // console.log(user);
+        handleUpdateUserProfile(name, photoURL);
+        toast.success("Registration Successful");
+
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // console.log(errorMessage);
+        // ..
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -77,7 +109,9 @@ const Register = () => {
 
             <label className="label">
               <span className="label-text-alt">Already have an account ? </span>
-              <Link className="label-text-alt link link-hover">Login here</Link>
+              <Link to="/login" className="label-text-alt link link-hover">
+                Login here
+              </Link>
             </label>
           </div>
         </form>
