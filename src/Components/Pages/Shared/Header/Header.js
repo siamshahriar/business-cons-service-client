@@ -77,7 +77,7 @@ const Header = () => {
             </p>
           </>
         )}
-        <Link className="ml-5" to="/profile">
+        <Link className="ml-5 mr-3" to="/profile">
           {user?.photoURL ? (
             <image
               style={{ height: "30px" }}
