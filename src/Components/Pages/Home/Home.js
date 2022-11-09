@@ -2,9 +2,11 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import EachReviews from "./EachReviews/EachReviews";
+import useTitle from "../../../Hooks/useTitle";
 
 const Home = () => {
   const limitedServices = useLoaderData();
+  useTitle("Home");
   return (
     <div>
       <Banner></Banner>

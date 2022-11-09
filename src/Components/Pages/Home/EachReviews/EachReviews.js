@@ -10,7 +10,7 @@ const EachReviews = ({ service }) => {
   return (
     <div className="card w-auto bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
-        <PhotoProvider>
+        <PhotoProvider maskOpacity={0.5}>
           <PhotoView src={img}>
             <img
               src={img}

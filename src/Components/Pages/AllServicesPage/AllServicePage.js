@@ -1,9 +1,11 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import EachReviews from "../Home/EachReviews/EachReviews";
+import useTitle from "../../../Hooks/useTitle";
 
 const AllServicePage = () => {
   const allServices = useLoaderData();
+  useTitle("Services");
   return (
     <div>
       <h2 className="text-center mt-8 text-2xl font-semibold text-green-400">

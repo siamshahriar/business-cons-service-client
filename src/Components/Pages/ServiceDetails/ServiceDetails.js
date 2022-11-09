@@ -8,9 +8,12 @@ import AddReview from "../AddReview/AddReview";
 import "../AddReview/addReview.css";
 import { FaWindowClose } from "react-icons/fa";
 import toast from "react-hot-toast";
+import useTitle from "../../../Hooks/useTitle";
 
 const ServiceDetails = () => {
   const eachService = useLoaderData();
+  const [pageTitle, setPageTitle] = useState("Service Details and Reviews");
+  useTitle(pageTitle);
   const [reviews, setReviews] = useState({});
   const [loading, setLoading] = useState(true);
   const [postReviewChange, setpostReviewChnage] = useState({});
@@ -40,6 +43,8 @@ const ServiceDetails = () => {
           toast.success("Review added successfully");
           setpostReviewChnage(postReview);
           close();
+          setPageTitle("Service Details and Reviews");
+
           //   form.reset();
         }
       })

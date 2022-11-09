@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import useTitle from "../../../Hooks/useTitle";
 
 const AddReview = ({ close, cataName, postReviewToDB }) => {
   const { user } = useContext(AuthContext);
+  useTitle("Add a Review");
   const handleAddReview = (e) => {
     e.preventDefault();
     const form = e.target;

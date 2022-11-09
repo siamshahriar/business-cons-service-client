@@ -4,11 +4,13 @@ import EditReviewModal from "../EditReviewModal/EditReviewModal";
 import "reactjs-popup/dist/index.css";
 import Popup from "reactjs-popup";
 import "../AddReview/addReview.css";
+import useTitle from "../../../Hooks/useTitle";
 
 import { FaWindowClose } from "react-icons/fa";
 
 const UserCustomerReviews = ({ review, updateReviewToDB, handleDelete }) => {
   const { name, text, img, _id } = review;
+  useTitle("My Reviews");
 
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
