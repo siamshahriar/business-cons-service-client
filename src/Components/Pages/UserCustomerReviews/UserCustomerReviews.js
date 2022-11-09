@@ -7,7 +7,7 @@ import "../AddReview/addReview.css";
 
 import { FaWindowClose } from "react-icons/fa";
 
-const UserCustomerReviews = ({ review, updateReviewToDB }) => {
+const UserCustomerReviews = ({ review, updateReviewToDB, handleDelete }) => {
   const { name, text, img, _id } = review;
 
   const [open, setOpen] = useState(false);
@@ -47,7 +47,9 @@ const UserCustomerReviews = ({ review, updateReviewToDB }) => {
           </Popup>
         </div>
         <div>
-          <button className="btn btn-xs">Delete</button>
+          <button onClick={() => handleDelete(_id)} className="btn btn-xs">
+            Delete
+          </button>
         </div>
       </div>
     </div>

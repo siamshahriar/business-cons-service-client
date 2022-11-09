@@ -45,6 +45,28 @@ const MyReviews = () => {
       });
   };
 
+  const handleDelete = (_id) => {
+    const proceed = window.confirm(
+      "are you sure you want to delete this review?"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${_id}`, {
+        method: "DELETE",
+        // headers: {
+        //   authorization: `Bearer ${localStorage.getItem("genius-Token")}`,
+        // },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          //   console.log(data);
+          if (data.deletedCount > 0) {
+            setpostReviewChnage(Math.floor(Math.random() * 100));
+            toast.success("Review Deleted successfully");
+          }
+        });
+    }
+  };
+
   return (
     <div>
       <div>
@@ -62,6 +84,7 @@ const MyReviews = () => {
               {!loading ? (
                 reviews.map((review) => (
                   <UserCustomerReviews
+                    handleDelete={handleDelete}
                     updateReviewToDB={updateReviewToDB}
                     key={review._id}
                     review={review}
