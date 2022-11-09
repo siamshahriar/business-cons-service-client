@@ -37,13 +37,13 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("Order Placed successfully");
+          toast.success("Review added successfully");
           setpostReviewChnage(postReview);
           close();
           //   form.reset();
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error(err));
   };
 
   const [open, setOpen] = useState(false);
