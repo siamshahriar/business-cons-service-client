@@ -7,11 +7,13 @@ import "reactjs-popup/dist/index.css";
 import AddReview from "../AddReview/AddReview";
 import "../AddReview/addReview.css";
 import { FaWindowClose } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const ServiceDetails = () => {
   const eachService = useLoaderData();
   const [reviews, setReviews] = useState({});
   const [loading, setLoading] = useState(true);
+  const [postReviewChange, setpostReviewChnage] = useState({});
   const { category } = eachService;
   //   console.log(reviews);
 
@@ -22,7 +24,27 @@ const ServiceDetails = () => {
         setReviews(data);
         setLoading(false);
       });
-  }, []);
+  }, [postReviewChange]);
+
+  const postReviewToDB = (postReview, close) => {
+    fetch("http://localhost:5000/addreview", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(postReview),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Order Placed successfully");
+          setpostReviewChnage(postReview);
+          close();
+          //   form.reset();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
@@ -48,7 +70,7 @@ const ServiceDetails = () => {
               ></EachCustomerReviews>
             ))
           ) : (
-            <p>loading</p>
+            <p>loading...</p>
           )}
         </div>
         <div className="text-center -mt-20 mb-10">
@@ -65,6 +87,7 @@ const ServiceDetails = () => {
                   <FaWindowClose></FaWindowClose>
                 </button>
                 <AddReview
+                  postReviewToDB={postReviewToDB}
                   cataName={reviews[0]?.category}
                   close={close}
                 ></AddReview>

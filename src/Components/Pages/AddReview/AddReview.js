@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
-const AddReview = ({ close, cataName }) => {
+const AddReview = ({ close, cataName, postReviewToDB }) => {
   const { user } = useContext(AuthContext);
   const handleAddReview = (e) => {
     e.preventDefault();
@@ -9,9 +10,13 @@ const AddReview = ({ close, cataName }) => {
 
     const name = form.name.value;
     const email = form.email.value;
-    const review = form.review.value;
-    const imageOfUser = user?.photoURL;
-    console.log(name, email, review);
+    const text = form.review.value;
+    const img = user?.photoURL;
+    const category = cataName;
+    const postReview = { name, category, email, text, img };
+    postReviewToDB(postReview, close);
+    
+    // console.log(name, email, review);
   };
   return (
     <div className="p-8 rounded border border-gray-200">
