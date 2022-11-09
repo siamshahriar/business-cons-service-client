@@ -4,6 +4,11 @@ import Page404 from "../Components/Pages/404Page/Page404";
 import AddReview from "../Components/Pages/AddReview/AddReview";
 import AddService from "../Components/Pages/AddService/AddService";
 import AllServicePage from "../Components/Pages/AllServicesPage/AllServicePage";
+import Blog from "../Components/Pages/Blog/Blog";
+import JVNODE from "../Components/Pages/Blog/JVNODE";
+import JWT from "../Components/Pages/Blog/JWT";
+import NodeMulti from "../Components/Pages/Blog/NodeMulti";
+import SQL from "../Components/Pages/Blog/SQL";
 import Home from "../Components/Pages/Home/Home";
 import Register from "../Components/Pages/Home/Register/Register";
 import Login from "../Components/Pages/Login/Login";
@@ -63,6 +68,26 @@ export const routes = createBrowserRouter([
             <AddService></AddService>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/blog/dfsqlnosql",
+        element: <SQL></SQL>,
+      },
+      {
+        path: "/blog/jwt",
+        element: <JWT></JWT>,
+      },
+      {
+        path: "/blog/jvnode",
+        element: <JVNODE></JVNODE>,
+      },
+      {
+        path: "/blog/nodejs",
+        element: <NodeMulti></NodeMulti>,
       },
       {
         path: "/*",
