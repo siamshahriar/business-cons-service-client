@@ -12,7 +12,7 @@ const Header = () => {
     logOut()
       .then(() => {
         // Sign-out successful.
-        console.log("sign out successful");
+        // console.log("sign out successful");
         toast.success("sign out Successful");
       })
       .catch((error) => {

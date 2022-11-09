@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Components/layout/Main";
+import Page404 from "../Components/Pages/404Page/Page404";
 import AddReview from "../Components/Pages/AddReview/AddReview";
 import AddService from "../Components/Pages/AddService/AddService";
 import AllServicePage from "../Components/Pages/AllServicesPage/AllServicePage";
@@ -62,6 +63,10 @@ export const routes = createBrowserRouter([
             <AddService></AddService>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/*",
+        element: <Page404></Page404>,
       },
     ],
   },
