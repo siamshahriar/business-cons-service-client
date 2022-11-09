@@ -12,9 +12,30 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then((result) => {
-        navigate(from, { replace: true });
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        const currentUser = {
+          email: user.email,
+        };
+        // navigate(from, { replace: true });
         toast.success("Google Log in Successful");
+
+        //JWT
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // local storage is the easiest but not the best place to store jwt token
+            localStorage.setItem("genius-token", data.token);
+            navigate(from, { replace: true });
+          });
 
         // ...
       })
@@ -39,9 +60,31 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         // console.log("login successful");
-        form.reset();
+        const user = userCredential.user;
+
+        const currentUser = {
+          email: user.email,
+        };
+        // form.reset();
         toast.success("Login Successful");
-        navigate(from, { replace: true });
+        //get jwt token
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // local storage is the easiest but not the best place to store jwt token
+            localStorage.setItem("genius-token", data.token);
+            navigate(from, { replace: true });
+          });
+
+        //
+        // navigate(from, { replace: true });
 
         // ...
       })

@@ -10,20 +10,29 @@ import UserCustomerReviews from "../UserCustomerReviews/UserCustomerReviews";
 import "./MyReviews.css";
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const email = user?.email;
   const [reviews, setReviews] = useState({});
   const [loading, setLoading] = useState(true);
   const [postReviewChange, setpostReviewChnage] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/reviews?email=${email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("genius-token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return logOut();
+        }
+        return res.json();
+      })
       .then((data) => {
         setReviews(data);
         setLoading(false);
       });
-  }, [email, postReviewChange]);
+  }, [email, postReviewChange, logOut]);
 
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
@@ -33,6 +42,7 @@ const MyReviews = () => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("genius-token")}`,
       },
       body: JSON.stringify(updatedReview),
     })
@@ -53,9 +63,9 @@ const MyReviews = () => {
     if (proceed) {
       fetch(`http://localhost:5000/reviews/${_id}`, {
         method: "DELETE",
-        // headers: {
-        //   authorization: `Bearer ${localStorage.getItem("genius-Token")}`,
-        // },
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("genius-token")}`,
+        },
       })
         .then((res) => res.json())
         .then((data) => {

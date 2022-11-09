@@ -26,6 +26,7 @@ const AddService = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("genius-token")}`,
       },
       body: JSON.stringify(newService),
     })
@@ -33,7 +34,7 @@ const AddService = () => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("Service added successfully");
-          //   form.reset();
+          form.reset();
         }
       })
       .catch((err) => toast.error(err));
