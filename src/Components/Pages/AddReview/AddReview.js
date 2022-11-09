@@ -15,14 +15,14 @@ const AddReview = ({ close, cataName, postReviewToDB }) => {
     const category = cataName;
     const postReview = { name, category, email, text, img };
     postReviewToDB(postReview, close);
-    
+
     // console.log(name, email, review);
   };
   return (
     <div className="p-8 rounded border border-gray-200">
       <h1 className="font-medium text-3xl">Add Review</h1>
       <p className="text-gray-600 mt-6">
-        on {cataName.toUpperCase()} Consultant
+        on {cataName?.toUpperCase()} Consultant
       </p>
 
       <form onSubmit={handleAddReview}>
