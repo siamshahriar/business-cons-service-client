@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  Navigate,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import Popup from "reactjs-popup";
 import EachCustomerReviews from "../EachCustomerReviews/EachCustomerReviews";
 import FullEachReviews from "../Home/EachReviews/FullEachReviews";
@@ -9,8 +14,10 @@ import "../AddReview/addReview.css";
 import { FaWindowClose } from "react-icons/fa";
 import toast from "react-hot-toast";
 import useTitle from "../../../Hooks/useTitle";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
+  const { user } = useContext(AuthContext);
   const eachService = useLoaderData();
   const [pageTitle, setPageTitle] = useState("Service Details and Reviews");
   useTitle(pageTitle);
@@ -19,6 +26,7 @@ const ServiceDetails = () => {
   const [postReviewChange, setpostReviewChnage] = useState({});
   const { category } = eachService;
   //   console.log(reviews);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/reviews/${category}`)
@@ -51,6 +59,11 @@ const ServiceDetails = () => {
       .catch((err) => toast.error(err));
   };
 
+  const pleaseLogIn = () => {
+    toast.error("Please login first !!");
+    navigate("/login");
+  };
+
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
 
@@ -79,26 +92,32 @@ const ServiceDetails = () => {
           )}
         </div>
         <div className="text-center -mt-20 mb-10">
-          <Popup
-            trigger={<button className="btn btn-outline">Add Review</button>}
-            modal
-          >
-            {(close) => (
-              <div>
-                <button
-                  className="close text-2xl text-blue-600 text-end absolute right-2"
-                  onClick={close}
-                >
-                  <FaWindowClose></FaWindowClose>
-                </button>
-                <AddReview
-                  postReviewToDB={postReviewToDB}
-                  cataName={reviews[0]?.category}
-                  close={close}
-                ></AddReview>
-              </div>
-            )}
-          </Popup>
+          {!user?.email ? (
+            <button onClick={pleaseLogIn} className="btn btn-outline">
+              Add Review
+            </button>
+          ) : (
+            <Popup
+              trigger={<button className="btn btn-outline">Add Review</button>}
+              modal
+            >
+              {(close) => (
+                <div>
+                  <button
+                    className="close text-2xl text-blue-600 text-end absolute right-2"
+                    onClick={close}
+                  >
+                    <FaWindowClose></FaWindowClose>
+                  </button>
+                  <AddReview
+                    postReviewToDB={postReviewToDB}
+                    cataName={reviews[0]?.category}
+                    close={close}
+                  ></AddReview>
+                </div>
+              )}
+            </Popup>
+          )}
         </div>
       </div>
     </div>

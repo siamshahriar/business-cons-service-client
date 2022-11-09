@@ -8,6 +8,7 @@ import Register from "../Components/Pages/Home/Register/Register";
 import Login from "../Components/Pages/Login/Login";
 import MyReviews from "../Components/Pages/MyReviews/MyReviews";
 import ServiceDetails from "../Components/Pages/ServiceDetails/ServiceDetails";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -40,15 +41,27 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/addreview",
-        element: <AddReview></AddReview>,
+        element: (
+          <PrivateRoute>
+            <AddReview></AddReview>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myreviews",
-        element: <MyReviews></MyReviews>,
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addservice",
-        element: <AddService></AddService>,
+        element: (
+          <PrivateRoute>
+            <AddService></AddService>
+          </PrivateRoute>
+        ),
       },
     ],
   },
