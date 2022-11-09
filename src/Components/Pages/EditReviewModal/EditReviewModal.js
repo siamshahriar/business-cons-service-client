@@ -71,6 +71,7 @@ const EditReviewModal = ({ close, updateReviewToDB, _id }) => {
               type="text"
               name="review"
               id="job"
+              required
               className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
               placeholder="(ex. developer)"
             />

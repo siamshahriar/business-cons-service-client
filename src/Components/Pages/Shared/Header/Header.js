@@ -91,13 +91,18 @@ const Header = () => {
             </p>
           </>
         )}
-        <Link className="ml-5 mr-3">
+        {/* <div className="tooltip tooltip-bottom" data-tip="hello"> */}
+        <Link
+          className="ml-5 mr-3 tooltip tooltip-bottom"
+          data-tip={user?.displayName}
+        >
           {user?.photoURL ? (
             <img src={user?.photoURL} alt="" className="h-8 rounded-full"></img>
           ) : (
             <FaUser></FaUser>
           )}
         </Link>
+        {/* </div> */}
       </div>
     </div>
   );

@@ -60,6 +60,7 @@ const AddService = () => {
               type="text"
               name="name"
               id="name"
+              required
               className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
               placeholder="Enter service name"
             />
@@ -76,6 +77,7 @@ const AddService = () => {
               type="text"
               name="category"
               id="category"
+              required
               className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
               placeholder="Enter service category"
             />
@@ -92,6 +94,7 @@ const AddService = () => {
               type="text"
               name="description"
               id="description"
+              required
               className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
               placeholder="Enter service description"
             />
@@ -108,6 +111,7 @@ const AddService = () => {
               type="text"
               name="imgURL"
               id="imgURL"
+              required
               className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
               placeholder="Enter service Image URL"
             />
@@ -124,6 +128,7 @@ const AddService = () => {
               type="text"
               name="price"
               id="price"
+              required
               className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
               placeholder="price of the service"
             />

@@ -19,8 +19,7 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const eachService = useLoaderData();
-  const [pageTitle, setPageTitle] = useState("Service Details and Reviews");
-  useTitle(pageTitle);
+  useTitle(eachService.name + " Details and Reviews");
   const [reviews, setReviews] = useState({});
   const [loading, setLoading] = useState(true);
   const [postReviewChange, setpostReviewChnage] = useState({});
@@ -51,7 +50,7 @@ const ServiceDetails = () => {
           toast.success("Review added successfully");
           setpostReviewChnage(postReview);
           close();
-          setPageTitle("Service Details and Reviews");
+          // setPageTitle("Service Details and Reviews");
 
           //   form.reset();
         }
@@ -76,9 +75,22 @@ const ServiceDetails = () => {
       </div>
       <FullEachReviews eachService={eachService}></FullEachReviews>
       <div>
-        <h2 className="text-2xl font-semibold text-center py-8">
-          Review Section {reviews.length}
-        </h2>
+        {!loading ? (
+          <>
+            <h2 className="text-2xl font-semibold text-center py-8">
+              Review Section
+            </h2>
+            <span className="block text-xl mb-24 text-center">
+              Number of Reviews of {eachService.name} service:{" "}
+              <span className="font-semibold"> {reviews.length}</span>
+            </span>
+          </>
+        ) : (
+          <div className="text-center mt-20">
+            <button className="btn loading">loading</button>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 my-16">
           {!loading ? (
             reviews.map((review) => (
@@ -88,7 +100,7 @@ const ServiceDetails = () => {
               ></EachCustomerReviews>
             ))
           ) : (
-            <p>loading...</p>
+            <div className="text-center"></div>
           )}
         </div>
         <div className="text-center -mt-20 mb-10">

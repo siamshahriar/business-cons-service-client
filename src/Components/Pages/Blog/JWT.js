@@ -1,6 +1,8 @@
 import React from "react";
+import useTitle from "../../../Hooks/useTitle";
 
 const JWT = () => {
+  useTitle("What is JWT, and how does it work?");
   return (
     <div className="bg-slate-200 lg:px-14 mb-10 rounded-lg pb-10">
       <h2 className="text-xl font-semibold text-center my-10 pt-8">

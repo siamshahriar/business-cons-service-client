@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../../Hooks/useTitle";
 
 const Blog = () => {
+  useTitle("Blog");
   return (
     <div className="lg:mb-20 mt-4">
       <section className=" ">
