@@ -1,0 +1,12 @@
+.noReview {
+  height: 75.3vh;
+}
+.hasReview {
+  height: 29.7vh;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .noReview {
+    height: 61.3vh;
+  }
+}

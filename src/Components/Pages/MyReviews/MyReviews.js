@@ -7,6 +7,7 @@ import { FaWindowClose } from "react-icons/fa";
 import toast from "react-hot-toast";
 import AddReview from "../AddReview/AddReview";
 import UserCustomerReviews from "../UserCustomerReviews/UserCustomerReviews";
+import "./MyReviews.css";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
@@ -71,12 +72,12 @@ const MyReviews = () => {
     <div>
       <div>
         {reviews?.length === 0 ? (
-          <h2 className="text-2xl font-semibold text-center py-8">
+          <h2 className="text-2xl font-semibold text-center py-8 noReview">
             No Reviews found for {user?.displayName}
           </h2>
         ) : (
           <div>
-            <h2 className="text-2xl font-semibold text-center py-8">
+            <h2 className="text-2xl font-semibold text-center py-8 hasReview">
               Reviews of {user?.displayName} : {reviews.length}
             </h2>
 

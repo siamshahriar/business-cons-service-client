@@ -3,6 +3,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import EachReviews from "./EachReviews/EachReviews";
 import useTitle from "../../../Hooks/useTitle";
+import ArgonFeature from "./ArgonFeature/ArgonFeature";
+import AnotherPart from "./AnotherPart/AnotherPart";
 
 const Home = () => {
   const limitedServices = useLoaderData();
@@ -19,6 +21,12 @@ const Home = () => {
         <Link to="/allservices">
           <button className="btn btn-primary w-32">View All</button>
         </Link>
+      </div>
+      <div>
+        <ArgonFeature></ArgonFeature>
+      </div>
+      <div>
+        <AnotherPart></AnotherPart>
       </div>
     </div>
   );
