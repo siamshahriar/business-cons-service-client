@@ -21,18 +21,20 @@ const AddReview = ({ close, cataName, postReviewToDB }) => {
     // console.log(name, email, review);
   };
   return (
-    <div className="p-8 rounded border border-gray-200">
-      <h1 className="font-medium text-3xl">Add Review</h1>
-      <p className="text-gray-600 mt-6">
+    <div className="p-8 rounded bg-gray-800">
+      <h1 className="font-medium text-3xl text-violet-400 text-center">
+        Add Review
+      </h1>
+      <p className="text-gray-300 text-center font-serif mt-6">
         on {cataName?.toUpperCase()} Consultant
       </p>
 
       <form onSubmit={handleAddReview}>
-        <div className="mt-8 space-y-6">
+        <div className="mt-8  space-y-6">
           <div>
             <label
               htmlFor="name"
-              className="text-sm text-gray-700 block mb-1 font-medium"
+              className="text-sm text-gray-300 block mb-1 font-medium"
             >
               Name
             </label>
@@ -42,7 +44,7 @@ const AddReview = ({ close, cataName, postReviewToDB }) => {
               id="name"
               defaultValue={user?.displayName}
               readOnly
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+              className="bg-gray-800 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
               placeholder="Enter your name"
             />
           </div>
@@ -50,7 +52,7 @@ const AddReview = ({ close, cataName, postReviewToDB }) => {
           <div>
             <label
               htmlFor="email"
-              className="text-sm text-gray-700 block mb-1 font-medium"
+              className="text-sm text-gray-300 block mb-1 font-medium"
             >
               Email Adress
             </label>
@@ -60,7 +62,7 @@ const AddReview = ({ close, cataName, postReviewToDB }) => {
               id="email"
               defaultValue={user?.email}
               readOnly
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+              className="bg-gray-800 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
               placeholder="yourmail@provider.com"
             />
           </div>
@@ -68,7 +70,7 @@ const AddReview = ({ close, cataName, postReviewToDB }) => {
           <div>
             <label
               htmlFor="job"
-              className="text-sm text-gray-700 block mb-1 font-medium"
+              className="text-sm text-gray-300 block mb-1 font-medium"
             >
               Review
             </label>
@@ -77,7 +79,7 @@ const AddReview = ({ close, cataName, postReviewToDB }) => {
               name="review"
               id="job"
               required
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+              className="bg-gray-900 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-100 w-full"
               placeholder="(ex. developer)"
             />
           </div>

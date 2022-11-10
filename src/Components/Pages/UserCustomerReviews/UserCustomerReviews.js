@@ -16,7 +16,7 @@ const UserCustomerReviews = ({ review, updateReviewToDB, handleDelete }) => {
   const closeModal = () => setOpen(false);
 
   return (
-    <div className="custom-card mb-12 md:mb-16 ">
+    <div className="custom-card mb-12 md:mb-16 bg-gray-800 drop-shadow-lg">
       <div className="custom-card-img">
         <img src={img} className="custom-card-img" alt="" />
       </div>

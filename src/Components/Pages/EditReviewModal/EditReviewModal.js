@@ -8,26 +8,22 @@ const EditReviewModal = ({ close, updateReviewToDB, _id }) => {
     const form = e.target;
 
     const text = form.review.value;
-    // console.log(text);
-    // const category = cataName;
+
     const updatedReview = { text };
-    // console.log(updatedReview);
+
     updateReviewToDB(updatedReview, close, _id);
-
-    // const [open, setOpen] = useState(false);
-    // const closeModal = () => setOpen(false);
-
-    // console.log(name, email, review);
   };
   return (
-    <div className="p-8 rounded border border-gray-200">
-      <h1 className="font-medium text-3xl">Update This Review</h1>
+    <div className="p-8 rounded bg-gray-800">
+      <h1 className="font-medium text-3xl text-violet-400 text-center">
+        Update This Review
+      </h1>
       <form onSubmit={handleEditReview}>
         <div className="mt-8 space-y-6">
           <div>
             <label
               htmlFor="name"
-              className="text-sm text-gray-700 block mb-1 font-medium"
+              className="text-sm text-gray-300 block mb-1 font-medium"
             >
               Name
             </label>
@@ -37,7 +33,7 @@ const EditReviewModal = ({ close, updateReviewToDB, _id }) => {
               id="name"
               defaultValue={user?.displayName}
               readOnly
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+              className="bg-gray-800 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
               placeholder="Enter your name"
             />
           </div>
@@ -45,7 +41,7 @@ const EditReviewModal = ({ close, updateReviewToDB, _id }) => {
           <div>
             <label
               htmlFor="email"
-              className="text-sm text-gray-700 block mb-1 font-medium"
+              className="text-sm text-gray-300 block mb-1 font-medium"
             >
               Email Adress
             </label>
@@ -55,7 +51,7 @@ const EditReviewModal = ({ close, updateReviewToDB, _id }) => {
               id="email"
               defaultValue={user?.email}
               readOnly
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+              className="bg-gray-800 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
               placeholder="yourmail@provider.com"
             />
           </div>
@@ -63,7 +59,7 @@ const EditReviewModal = ({ close, updateReviewToDB, _id }) => {
           <div>
             <label
               htmlFor="job"
-              className="text-sm text-gray-700 block mb-1 font-medium"
+              className="text-sm text-gray-300 block mb-1 font-medium"
             >
               Review
             </label>
@@ -72,7 +68,7 @@ const EditReviewModal = ({ close, updateReviewToDB, _id }) => {
               name="review"
               id="job"
               required
-              className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+              className="bg-gray-900 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-100 w-full"
               placeholder="(ex. developer)"
             />
           </div>

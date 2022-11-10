@@ -41,9 +41,11 @@ const AddService = () => {
   };
   return (
     <div className="pt-24">
-      <div className="p-8 rounded border border-gray-200 max-w-screen-lg mx-auto mb-20">
-        <h1 className="font-medium text-3xl text-center">Add Service</h1>
-        <p className="text-gray-600 mt-6 text-center">
+      <div className="p-8 rounded border border-gray-800 bg-gray-800 drop-shadow-2xl max-w-screen-lg mx-auto mb-20">
+        <h1 className="font-medium text-3xl text-center font-mono">
+          Add Service
+        </h1>
+        <p className="text-gray-300 mt-6 text-center">
           Enter the Service name, category, price, description and image link of
           banner.{" "}
         </p>
@@ -53,7 +55,7 @@ const AddService = () => {
             <div>
               <label
                 htmlFor="name"
-                className="text-sm text-gray-700 block mb-1 font-medium"
+                className="text-sm text-gray-300 block mb-1 font-medium"
               >
                 Name
               </label>
@@ -62,7 +64,7 @@ const AddService = () => {
                 name="name"
                 id="name"
                 required
-                className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+                className="bg-gray-700 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
                 placeholder="Enter service name"
               />
             </div>
@@ -70,7 +72,7 @@ const AddService = () => {
             <div>
               <label
                 htmlFor="category"
-                className="text-sm text-gray-700 block mb-1 font-medium"
+                className="text-sm text-gray-300 block mb-1 font-medium"
               >
                 Category
               </label>
@@ -79,7 +81,7 @@ const AddService = () => {
                 name="category"
                 id="category"
                 required
-                className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+                className="bg-gray-700 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
                 placeholder="Enter service category"
               />
             </div>
@@ -87,7 +89,7 @@ const AddService = () => {
             <div>
               <label
                 htmlFor="description"
-                className="text-sm text-gray-700 block mb-1 font-medium"
+                className="text-sm text-gray-300 block mb-1 font-medium"
               >
                 Description
               </label>
@@ -96,7 +98,7 @@ const AddService = () => {
                 name="description"
                 id="description"
                 required
-                className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+                className="bg-gray-700 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
                 placeholder="Enter service description"
               />
             </div>
@@ -104,7 +106,7 @@ const AddService = () => {
             <div>
               <label
                 htmlFor="imgURL"
-                className="text-sm text-gray-700 block mb-1 font-medium"
+                className="text-sm text-gray-300 block mb-1 font-medium"
               >
                 Image URL
               </label>
@@ -113,7 +115,7 @@ const AddService = () => {
                 name="imgURL"
                 id="imgURL"
                 required
-                className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+                className="bg-gray-700 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
                 placeholder="Enter service Image URL"
               />
             </div>
@@ -121,7 +123,7 @@ const AddService = () => {
             <div>
               <label
                 htmlFor="price"
-                className="text-sm text-gray-700 block mb-1 font-medium"
+                className="text-sm text-gray-300 block mb-1 font-medium"
               >
                 Price
               </label>
@@ -130,7 +132,7 @@ const AddService = () => {
                 name="price"
                 id="price"
                 required
-                className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
+                className="bg-gray-700 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-300 w-full"
                 placeholder="price of the service"
               />
             </div>

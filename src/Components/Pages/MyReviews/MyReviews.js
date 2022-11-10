@@ -86,16 +86,16 @@ const MyReviews = () => {
       <div className="max-w-screen-xl mx-auto">
         <div>
           {reviews?.length === 0 ? (
-            <h2 className="text-2xl font-semibold text-center py-8 noReview">
+            <h2 className="text-2xl font-semibold text-center py-8 text-red-400 noReview">
               No Reviews found for {user?.displayName}
             </h2>
           ) : (
             <div>
-              <h2 className="text-2xl font-semibold text-center py-8 hasReview">
+              <h2 className="text-2xl font-semibold text-center py-8 text-violet-400 hasReview">
                 Reviews of {user?.displayName} : {reviews.length}
               </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 my-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-16 mx-10">
                 {!loading ? (
                   reviews.map((review) => (
                     <UserCustomerReviews

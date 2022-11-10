@@ -69,7 +69,7 @@ const ServiceDetails = () => {
   return (
     <div className="max-w-screen-xl mx-auto pt-20">
       <div>
-        <h2 className="text-2xl font-semibold text-center py-8">
+        <h2 className="text-2xl font-semibold text-center py-8 text-violet-400 font-mono">
           Service Section
         </h2>
       </div>
@@ -77,11 +77,11 @@ const ServiceDetails = () => {
       <div>
         {!loading ? (
           <>
-            <h2 className="text-2xl font-semibold text-center py-8">
+            <h2 className="text-2xl font-semibold text-center py-8 text-violet-400 font-mono">
               Review Section
             </h2>
-            <span className="block text-xl mb-24 text-center">
-              Number of Reviews of {eachService.name} service:{" "}
+            <span className="block text-xl mb-24 text-center font-light">
+              Number of Reviews of this service:{" "}
               <span className="font-semibold"> {reviews.length}</span>
             </span>
           </>
@@ -91,7 +91,7 @@ const ServiceDetails = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 my-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 my-16 mx-10">
           {!loading ? (
             reviews.map((review) => (
               <EachCustomerReviews
