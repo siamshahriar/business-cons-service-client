@@ -21,9 +21,9 @@ const Footer = () => {
             </svg>
             <p>
               Programming Hero is the best Learning Platform <br />
-              for beginnners in Bangladesh.
+              for beginners in Bangladesh.
               <span className="block pt-3">
-                May Allah give all of the success which we all are waiting for.
+                May Allah give us all of the success which we are waiting for.
               </span>
             </p>
           </div>

@@ -100,9 +100,11 @@ const Login = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content ">
+      <div className="hero-content w-full">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-4xl font-semibold text-center">Login </h1>
+          <h1 className="text-2xl font-semibold text-center font-mono pt-10">
+            Login{" "}
+          </h1>
           <form onSubmit={handleLogIn} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -139,21 +141,26 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <div className="divider">OR</div>
           <div className="">
             <div className="">
               <p className="text-center">Log in with</p>
               <div className="flex justify-center mt-3">
                 <button
                   onClick={handleGoogleSignIn}
-                  className="btn btn-link bg-yellow-300"
+                  className="btn text-green-800 bg-yellow-300 rounded-full hover:bg-yellow-500"
                 >
                   <FaGoogle></FaGoogle>
                 </button>
               </div>
             </div>
+            <div className="divider"></div>
             <div className="text-center my-3">
               <span className="text-sm">New to this site ? </span>
-              <Link to="/signup" className="text-sm link link-hover">
+              <Link
+                to="/signup"
+                className="text-sm link link-hover text-violet-300 font-semibold"
+              >
                 Register here
               </Link>
             </div>
