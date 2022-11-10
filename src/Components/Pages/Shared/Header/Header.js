@@ -43,7 +43,7 @@ const Header = () => {
   );
 
   return (
-    <div className="navbar bg-gray-800 bg-opacity-90 z-30  fixed text-slate-100 lg:px-14">
+    <div className="navbar bg-gray-800 bg-opacity-90 z-30  fixed text-slate-100 lg:px-14 drop-shadow-lg">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -69,7 +69,7 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
           <img src={logo} className="h-full mr-5" alt="" />
           <span className="hidden text-sm w-40 lg:block font-mono">
             Business Consultant Reviews
