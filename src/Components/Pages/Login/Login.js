@@ -22,7 +22,7 @@ const Login = () => {
         toast.success("Google Log in Successful");
 
         //JWT
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://business-cons-service-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -68,7 +68,7 @@ const Login = () => {
         // form.reset();
         toast.success("Login Successful");
         //get jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://business-cons-service-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

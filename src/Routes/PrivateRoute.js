@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="text-center">
+      <div className="text-center mt-10">
         <button className="btn loading">loading</button>
       </div>
     );

@@ -17,11 +17,14 @@ const MyReviews = () => {
   const [postReviewChange, setpostReviewChnage] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("genius-token")}`,
-      },
-    })
+    fetch(
+      `https://business-cons-service-server.vercel.app/reviews?email=${email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("genius-token")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logOut();
@@ -38,7 +41,7 @@ const MyReviews = () => {
   const closeModal = () => setOpen(false);
 
   const updateReviewToDB = (updatedReview, close, _id) => {
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch(`https://business-cons-service-server.vercel.app/reviews/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +64,7 @@ const MyReviews = () => {
       "are you sure you want to delete this review?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${_id}`, {
+      fetch(`https://business-cons-service-server.vercel.app/reviews/${_id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("genius-token")}`,
@@ -79,34 +82,38 @@ const MyReviews = () => {
   };
 
   return (
-    <div>
-      <div>
-        {reviews?.length === 0 ? (
-          <h2 className="text-2xl font-semibold text-center py-8 noReview">
-            No Reviews found for {user?.displayName}
-          </h2>
-        ) : (
-          <div>
-            <h2 className="text-2xl font-semibold text-center py-8 hasReview">
-              Reviews of {user?.displayName} : {reviews.length}
+    <div className="pt-16">
+      <div className="max-w-screen-xl mx-auto">
+        <div>
+          {reviews?.length === 0 ? (
+            <h2 className="text-2xl font-semibold text-center py-8 noReview">
+              No Reviews found for {user?.displayName}
             </h2>
+          ) : (
+            <div>
+              <h2 className="text-2xl font-semibold text-center py-8 hasReview">
+                Reviews of {user?.displayName} : {reviews.length}
+              </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 my-16">
-              {!loading ? (
-                reviews.map((review) => (
-                  <UserCustomerReviews
-                    handleDelete={handleDelete}
-                    updateReviewToDB={updateReviewToDB}
-                    key={review._id}
-                    review={review}
-                  ></UserCustomerReviews>
-                ))
-              ) : (
-                <p>loading...</p>
-              )}
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 my-16">
+                {!loading ? (
+                  reviews.map((review) => (
+                    <UserCustomerReviews
+                      handleDelete={handleDelete}
+                      updateReviewToDB={updateReviewToDB}
+                      key={review._id}
+                      review={review}
+                    ></UserCustomerReviews>
+                  ))
+                ) : (
+                  <div className="text-center ">
+                    <button className="btn loading">loading</button>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const EachReviews = ({ service }) => {
   //   console.log(description);
 
   return (
-    <div className="card w-auto bg-base-100 shadow-xl">
+    <div className="card w-auto bg-gray-900 bg-opacity-50  shadow-xl">
       <figure className="px-10 pt-10">
         <PhotoProvider maskOpacity={0.5}>
           <PhotoView src={img}>
@@ -22,12 +22,16 @@ const EachReviews = ({ service }) => {
         </PhotoProvider>
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{name}</h2>
+        <h2 className="card-title text-white">{name}</h2>
         <p>{description.slice(0, 100)}...</p>
-        <p className="text-lg font-semibold">Price: ${price}</p>
+        <p className="text-2xl my-6 font-semibold text-gray-300">
+          Price: ${price}
+        </p>
         <div className="card-actions">
           <Link to={`/services/${_id}`}>
-            <button className="btn btn-primary">View Details</button>
+            <button className="btn btn-primary text-slate-200">
+              View Details
+            </button>
           </Link>
         </div>
       </div>

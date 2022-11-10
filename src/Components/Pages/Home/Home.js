@@ -10,7 +10,7 @@ const Home = () => {
   const limitedServices = useLoaderData();
   useTitle("Home");
   return (
-    <div>
+    <div className="max-w-screen-xl mx-auto pt-24">
       <Banner></Banner>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-7">
         {limitedServices.map((service) => (
@@ -25,7 +25,7 @@ const Home = () => {
       <div>
         <ArgonFeature></ArgonFeature>
       </div>
-      <div>
+      <div className="bg-gray-900 bg-opacity-50 rounded-xl">
         <AnotherPart></AnotherPart>
       </div>
     </div>

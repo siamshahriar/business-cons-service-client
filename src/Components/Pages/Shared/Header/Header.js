@@ -43,7 +43,7 @@ const Header = () => {
   );
 
   return (
-    <div className="navbar bg-cyan-300">
+    <div className="navbar bg-gray-800 bg-opacity-90 z-30  fixed text-slate-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,14 +64,16 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 "
           >
             {menuItems}
           </ul>
         </div>
         <Link className="btn btn-ghost normal-case text-xl">
           <img src={logo} className="h-full" alt="" />
-          <span className="text-sm w-40">Business Consultant Reviews</span>
+          <span className="hidden text-sm w-40 lg:block">
+            Business Consultant Reviews
+          </span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -80,7 +82,10 @@ const Header = () => {
       <div className="navbar-end">
         {user?.uid ? (
           <>
-            <button onClick={handleLogOut} className="btn-ghost">
+            <button
+              onClick={handleLogOut}
+              className="btn-ghost text-stone-100 font-semibold"
+            >
               Sign Out
             </button>
           </>
@@ -94,7 +99,7 @@ const Header = () => {
         {/* <div className="tooltip tooltip-bottom" data-tip="hello"> */}
         <Link
           className="ml-5 mr-3 tooltip tooltip-bottom"
-          data-tip={user?.displayName}
+          data-tip={`${user?.displayName ? `${user?.displayName}` : "No User"}`}
         >
           {user?.photoURL ? (
             <img src={user?.photoURL} alt="" className="h-8 rounded-full"></img>

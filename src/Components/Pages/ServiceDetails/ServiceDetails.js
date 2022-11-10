@@ -28,7 +28,7 @@ const ServiceDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${category}`)
+    fetch(`https://business-cons-service-server.vercel.app/reviews/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -37,7 +37,7 @@ const ServiceDetails = () => {
   }, [postReviewChange]);
 
   const postReviewToDB = (postReview, close) => {
-    fetch("http://localhost:5000/addreview", {
+    fetch("https://business-cons-service-server.vercel.app/addreview", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ const ServiceDetails = () => {
   const closeModal = () => setOpen(false);
 
   return (
-    <div>
+    <div className="max-w-screen-xl mx-auto pt-20">
       <div>
         <h2 className="text-2xl font-semibold text-center py-8">
           Service Section
@@ -105,12 +105,14 @@ const ServiceDetails = () => {
         </div>
         <div className="text-center -mt-20 mb-10">
           {!user?.email ? (
-            <button onClick={pleaseLogIn} className="btn btn-outline">
+            <button onClick={pleaseLogIn} className="btn btn-outline mb-14">
               Add Review
             </button>
           ) : (
             <Popup
-              trigger={<button className="btn btn-outline">Add Review</button>}
+              trigger={
+                <button className="btn btn-outline mb-14">Add Review</button>
+              }
               modal
             >
               {(close) => (
