@@ -8,7 +8,7 @@ import AnotherPart from "./AnotherPart/AnotherPart";
 
 const Home = () => {
   const limitedServices = useLoaderData();
-  useTitle("Home");
+  useTitle("Home Business Consultant Service");
   return (
     <div className="max-w-screen-xl mx-auto pt-24">
       <Banner></Banner>

@@ -28,7 +28,7 @@ const UserCustomerReviews = ({ review, updateReviewToDB, handleDelete }) => {
         <div>
           {" "}
           <Popup
-            trigger={<button className="btn btn-outline btn-xs">Update</button>}
+            trigger={<button className="btn btn-outline btn-sm">Update</button>}
             modal
           >
             {(close) => (
@@ -49,7 +49,7 @@ const UserCustomerReviews = ({ review, updateReviewToDB, handleDelete }) => {
           </Popup>
         </div>
         <div>
-          <button onClick={() => handleDelete(_id)} className="btn btn-xs">
+          <button onClick={() => handleDelete(_id)} className="btn btn-sm">
             Delete
           </button>
         </div>
